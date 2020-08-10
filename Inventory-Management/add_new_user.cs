@@ -27,7 +27,7 @@ namespace Inventory_Management
             }
 
             con.Open();
-            display();
+            vDisplayUsers();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace Inventory_Management
                     textBox5.Text = "";
                     textBox6.Text = "";
 
-                    display();
+                    vDisplayUsers();
                     MessageBox.Show("User record inserted successfully");
                 }
                 else
@@ -90,7 +90,7 @@ namespace Inventory_Management
 
         }
 
-        public void display()
+        public void vDisplayUsers()
         {
 
             int i = 0;
@@ -118,7 +118,7 @@ namespace Inventory_Management
                 cmd.CommandText = "delete from registration where id='" + id + "'";
                 cmd.ExecuteNonQuery();
 
-                display();
+                vDisplayUsers();
             }
         }
     }

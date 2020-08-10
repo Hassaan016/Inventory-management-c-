@@ -98,5 +98,12 @@ namespace Inventory_Management
             add_new_user au = new add_new_user();
             au.Show();
         }
+
+        private void addNewUnitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            unit objUnit = new unit();
+
+            objUnit.Show();
+        }
     }
 }

@@ -15,7 +15,9 @@ namespace Inventory_Management
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new add_new_user());
+            //Application.Run(new add_new_user());
+            Application.Run(new unit());
+
             //Application.Run(new Login());
         }
     }
