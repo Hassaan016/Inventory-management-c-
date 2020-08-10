@@ -84,7 +84,7 @@ namespace Inventory_Management
             else
             {
                 MessageBoxButtons objMessageBoxButton = MessageBoxButtons.OK;
-                MessageBox.Show("Compulsory Fields: FirstName, LastName, Username & Password","Error", objMessageBoxButton, MessageBoxIcon.Error);
+                MessageBox.Show("ERROR: Compulsory Fields: FirstName, LastName, Username & Password","Error", objMessageBoxButton, MessageBoxIcon.Error);
             }
 
 

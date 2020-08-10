@@ -105,5 +105,11 @@ namespace Inventory_Management
 
             objUnit.Show();
         }
+
+        private void addProductNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            add_product_name objProductName = new add_product_name();
+            objProductName.Show();
+        }
     }
 }
