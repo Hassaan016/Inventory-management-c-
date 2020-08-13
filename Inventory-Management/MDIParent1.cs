@@ -111,5 +111,17 @@ namespace Inventory_Management
             add_product_name objProductName = new add_product_name();
             objProductName.Show();
         }
+
+        private void dealerInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dealer_info objDealerInfo = new dealer_info();
+            objDealerInfo.Show();
+        }
+
+        private void purchaseProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            purchase_master objPurchaseMaster = new purchase_master();
+            objPurchaseMaster.Show();
+        }
     }
 }

@@ -17,9 +17,10 @@ namespace Inventory_Management
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new add_new_user());
             //Application.Run(new unit());
-            //Application.Run(new add_product_name());
-
-            Application.Run(new Login());
+            // Application.Run(new add_product_name());
+            //Application.Run(new dealer_info());
+            Application.Run(new purchase_master());
+            //Application.Run(new Login());
         }
     }
 }

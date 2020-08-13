@@ -19,6 +19,7 @@ namespace Inventory_Management
             InitializeComponent();
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             int count = 0;
@@ -46,6 +47,7 @@ namespace Inventory_Management
             }
         }
 
+
         private void unit_Load(object sender, EventArgs e)
         {
             if (con.State == ConnectionState.Open)
@@ -57,10 +59,9 @@ namespace Inventory_Management
             vDisplayUnits();
         }
 
+
         public void vDisplayUnits()
         {
-
-            int i = 0;
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from units";
@@ -72,11 +73,12 @@ namespace Inventory_Management
             dataGridView1.DataSource = dt;
         }
 
+
         private void button2_Click(object sender, EventArgs e)
         {
             int id;
 
-            if ((dataGridView1.SelectedCells[0].Value) != null)
+            if ((dataGridView1.Rows.Count >= 2) && (dataGridView1.SelectedCells[0].Value.ToString() != ""))
             {
                 id = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
 
@@ -86,6 +88,11 @@ namespace Inventory_Management
                 cmd.ExecuteNonQuery();
 
                 vDisplayUnits();
+            }
+            else
+            {
+                MessageBoxButtons objMessageBoxButton = MessageBoxButtons.OK;
+                MessageBox.Show("ERROR: Please select a unit", "Error", objMessageBoxButton, MessageBoxIcon.Error);
             }
         }
     }

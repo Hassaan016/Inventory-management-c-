@@ -36,6 +36,7 @@ namespace Inventory_Management
             vFillProductNameInfo();
         }
 
+
         public void vFillSelectUnitInfo()
         {
             comboBox1.Items.Clear();
@@ -53,6 +54,7 @@ namespace Inventory_Management
             }
         }
 
+
         public void vFillProductNameInfo()
         {
             SqlCommand cmd = con.CreateCommand();
@@ -66,6 +68,7 @@ namespace Inventory_Management
             dataGridView1.DataSource = dt;
         }
 
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if((bHandlingDataGridEvent == true))
@@ -73,7 +76,7 @@ namespace Inventory_Management
                 return;
             }
 
-            Console.WriteLine("DEBUG: dataGridView1_CellContentClick() Called!");
+            Console.WriteLine("DEBUG_PRODUCT_NAME: dataGridView1_CellContentClick() Called!");
 
             bHandlingDataGridEvent = true;
 
@@ -117,6 +120,7 @@ namespace Inventory_Management
             bHandlingDataGridEvent = false;
         }
 
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if ((bHandlingDataGridEvent == true))
@@ -124,7 +128,7 @@ namespace Inventory_Management
                 return;
             }
 
-            Console.WriteLine("DEBUG: dataGridView1_CellClick() Called!");
+            Console.WriteLine("DEBUG_PRODUCT_NAME: dataGridView1_CellClick() Called!");
             bHandlingDataGridEvent = true;
 
             if ((dataGridView1.SelectedCells[0].Value.ToString() != ""))
@@ -169,7 +173,7 @@ namespace Inventory_Management
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("DEBUG: Insert Button clicked!");
+            Console.WriteLine("DEBUG_PRODUCT_NAME: Insert Button clicked!");
 
             if ((comboBox1.SelectedIndex != -1))
             {
@@ -192,9 +196,9 @@ namespace Inventory_Management
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("DEBUG: Update Button clicked!");
+            Console.WriteLine("DEBUG_PRODUCT_NAME: Update Button clicked!");
 
-            if ((comboBox2.SelectedIndex != -1) && ((dataGridView1.Rows.Count != 0) && (dataGridView1.SelectedCells[0].Value.ToString() != "")))
+            if ((comboBox2.SelectedIndex != -1) && ((dataGridView1.Rows.Count >= 2) && (dataGridView1.SelectedCells[0].Value.ToString() != "")))
             {
                 int i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
 
@@ -213,17 +217,17 @@ namespace Inventory_Management
                 MessageBoxButtons objMessageBoxButton = MessageBoxButtons.OK;
                 MessageBox.Show("ERROR: Please select a unit", "Error", objMessageBoxButton, MessageBoxIcon.Error);
             }
-
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
             int id;
 
-            Console.WriteLine("DEBUG: Delete Button clicked!");
+            Console.WriteLine("DEBUG_PRODUCT_NAME: Delete Button clicked!");
 
 
-            if ((dataGridView1.Rows.Count != 0) && (dataGridView1.SelectedCells[0].Value.ToString() != ""))
+            if ((dataGridView1.Rows.Count >= 2) && (dataGridView1.SelectedCells[0].Value.ToString() != ""))
             {
                 id = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
 

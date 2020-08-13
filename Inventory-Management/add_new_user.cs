@@ -92,8 +92,6 @@ namespace Inventory_Management
 
         public void vDisplayUsers()
         {
-
-            int i = 0;
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from registration";

@@ -71,6 +71,12 @@
     <Compile Include="add_product_name.Designer.cs">
       <DependentUpon>add_product_name.cs</DependentUpon>
     </Compile>
+    <Compile Include="dealer_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dealer_info.Designer.cs">
+      <DependentUpon>dealer_info.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="purchase_master.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="purchase_master.Designer.cs">
+      <DependentUpon>purchase_master.cs</DependentUpon>
+    </Compile>
     <Compile Include="unit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="add_product_name.resx">
       <DependentUpon>add_product_name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dealer_info.resx">
+      <DependentUpon>dealer_info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -112,9 +127,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="purchase_master.resx">
+      <DependentUpon>purchase_master.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="unit.resx">
       <DependentUpon>unit.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
