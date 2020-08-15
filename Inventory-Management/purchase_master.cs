@@ -38,6 +38,7 @@ namespace Inventory_Management
 
         public void vFetchProductNameInfo()
         {
+            comboBox1.Text = "";
             comboBox1.Items.Clear();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -56,6 +57,7 @@ namespace Inventory_Management
 
         public void vFetchDealerNameInfo()
         {
+            comboBox2.Text = "";
             comboBox2.Items.Clear();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -210,13 +212,40 @@ namespace Inventory_Management
         {
             Console.WriteLine("DEBUG_PURCHASE_MASTER: Update Button clicked! {0}", dataGridView1.Rows.Count);
 
-            if ((dataGridView1.Rows.Count >= 2) && (dataGridView1.SelectedCells[0].Value.ToString() != ""))
+            string strProductNameComboBox = "";
+            string strDealerNameComboBox = "";
+            string strPurchaseTypeComboBox = "";
+
+            bool bComboBoxValidTextField = false;
+            bool bComboBoxValidSelectionMade = false;
+
+            Console.WriteLine("Why!");
+
+            if ((comboBox1.Text != "")&&((comboBox2.Text != ""))&&((comboBox3.Text != "")))
+            {
+                strProductNameComboBox = comboBox1.Text;
+                strDealerNameComboBox = comboBox2.Text;
+                strPurchaseTypeComboBox = comboBox3.Text;
+                bComboBoxValidTextField = true;
+                bComboBoxValidSelectionMade = true;
+            }
+
+            if ((comboBox1.SelectedIndex != -1)&& (comboBox2.SelectedIndex != -1)&& (comboBox3.SelectedIndex != -1))
+            {
+                strProductNameComboBox = comboBox1.SelectedIndex.ToString();
+                strDealerNameComboBox = comboBox2.SelectedIndex.ToString();
+                strPurchaseTypeComboBox = comboBox3.SelectedIndex.ToString();
+                bComboBoxValidTextField = true;
+                bComboBoxValidSelectionMade = true;
+            }
+
+            if ((bComboBoxValidTextField == true) &&(bComboBoxValidSelectionMade == true) &&(dataGridView1.Rows.Count >= 2) && (dataGridView1.SelectedCells[0].Value.ToString() != ""))
             {
                 int i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
 
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update purchase_master set product_name= '" + comboBox1.SelectedItem.ToString() + "',product_quantity='" + textBox1.Text + "' ,product_unit='" + Unit.Text + "' ,product_price='" + textBox2.Text + "' ,product_total='" + textBox3.Text + "',product_date='"+dateTimePicker1.Value.ToString()+"',product_party_name='"+comboBox2.SelectedValue.ToString()+"',purchase_type='"+comboBox3.SelectedValue.ToString()+"',expiry_date='"+dateTimePicker2.Value.ToString()+"',profit='"+textBox4+"' where id=" + i + "";
+                cmd.CommandText = "update purchase_master set product_name= '" + strProductNameComboBox + "',product_quantity='" + textBox1.Text + "' ,product_unit='" + Unit.Text + "' ,product_price='" + textBox2.Text + "' ,product_total='" + textBox3.Text + "',product_date='"+dateTimePicker1.Value.ToString()+"',product_party_name='"+ strDealerNameComboBox + "',purchase_type='"+ strPurchaseTypeComboBox + "',expiry_date='"+dateTimePicker2.Value.ToString()+"',profit='"+textBox4+"' where id=" + i + "";
                 cmd.ExecuteNonQuery();
 
                 vDisplayPurchaseMasterInfo();
@@ -353,6 +382,18 @@ namespace Inventory_Management
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                textBox3.Text = Convert.ToString(ulPurchaseMasterCalculateProductTotal());
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

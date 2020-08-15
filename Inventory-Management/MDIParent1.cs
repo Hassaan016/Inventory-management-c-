@@ -123,5 +123,22 @@ namespace Inventory_Management
             purchase_master objPurchaseMaster = new purchase_master();
             objPurchaseMaster.Show();
         }
+
+        private void makeSaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sales objSales = new sales();
+            objSales.Show();
+        }
+
+        private void purchaseReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void purchaseReportToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            genereate_purchase_report objGeneratePurchaseReport = new genereate_purchase_report();
+            objGeneratePurchaseReport.Show();
+        }
     }
 }

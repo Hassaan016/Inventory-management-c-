@@ -175,21 +175,39 @@ namespace Inventory_Management
         {
             Console.WriteLine("DEBUG_PRODUCT_NAME: Insert Button clicked!");
 
-            if ((comboBox1.SelectedIndex != -1))
-            {
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into product_name values('" + textBox1.Text + "','" + comboBox1.SelectedItem.ToString() + "')";
-                cmd.ExecuteNonQuery();
+            int count = 0;
+            SqlCommand cmd1 = con.CreateCommand();
+            cmd1.CommandType = CommandType.Text;
+            cmd1.CommandText = "select * from product_name where product_name='" + textBox1.Text + "'";
+            cmd1.ExecuteNonQuery();
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
+            da1.Fill(dt1);
+            count = Convert.ToInt32(dt1.Rows.Count.ToString());
 
-                textBox1.Text = "";
-                vFillProductNameInfo();
-                MessageBox.Show("Record Inserted Successfully", "Message");
+            if ((count == 0))
+            {
+                if ((comboBox1.SelectedIndex != -1) && (textBox1.Text != ""))
+                {
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "insert into product_name values('" + textBox1.Text + "','" + comboBox1.SelectedItem.ToString() + "')";
+                    cmd.ExecuteNonQuery();
+
+                    textBox1.Text = "";
+                    vFillProductNameInfo();
+                    MessageBox.Show("Record Inserted Successfully", "Message");
+                }
+                else
+                {
+                    MessageBoxButtons objMessageBoxButton = MessageBoxButtons.OK;
+                    MessageBox.Show("ERROR: Invalid fields used:\nProduct Name\nSelect Unit", "Error", objMessageBoxButton, MessageBoxIcon.Error);
+                }
             }
             else
             {
                 MessageBoxButtons objMessageBoxButton = MessageBoxButtons.OK;
-                MessageBox.Show("ERROR: Invalid fields used:\nProduct Name\nSelect Unit", "Error", objMessageBoxButton, MessageBoxIcon.Error);
+                MessageBox.Show("This product is already added", "Warning", objMessageBoxButton, MessageBoxIcon.Warning);
             }
         }
 

@@ -47,8 +47,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +84,35 @@
     <Compile Include="dealer_info.Designer.cs">
       <DependentUpon>dealer_info.cs</DependentUpon>
     </Compile>
+    <Compile Include="generate_purchase_crystal_report.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>generate_purchase_crystal_report.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="generate_sales_bill_crystal_report.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>generate_sales_bill_crystal_report.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="generate_sales_bill_report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="generate_sales_bill_report.Designer.cs">
+      <DependentUpon>generate_sales_bill_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="generate_sales_bill_report_dataset1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>generate_sales_bill_report_dataset1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="genereate_purchase_report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="genereate_purchase_report.Designer.cs">
+      <DependentUpon>genereate_purchase_report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,11 +127,31 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\generate_purchase_report_dataset1.cs">
+      <DependentUpon>generate_purchase_report_dataset1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\generate_purchase_report_dataset1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>generate_purchase_report_dataset1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="purchase_master.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="purchase_master.Designer.cs">
       <DependentUpon>purchase_master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="purchase_report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="purchase_report.Designer.cs">
+      <DependentUpon>purchase_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sales.Designer.cs">
+      <DependentUpon>sales.cs</DependentUpon>
     </Compile>
     <Compile Include="unit.cs">
       <SubType>Form</SubType>
@@ -111,6 +167,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dealer_info.resx">
       <DependentUpon>dealer_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="generate_purchase_crystal_report.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>generate_purchase_crystal_report.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="generate_sales_bill_crystal_report.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>generate_sales_bill_crystal_report.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="generate_sales_bill_report.resx">
+      <DependentUpon>generate_sales_bill_report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="genereate_purchase_report.resx">
+      <DependentUpon>genereate_purchase_report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -130,10 +200,38 @@
     <EmbeddedResource Include="purchase_master.resx">
       <DependentUpon>purchase_master.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="purchase_report.resx">
+      <DependentUpon>purchase_report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sales.resx">
+      <DependentUpon>sales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="unit.resx">
       <DependentUpon>unit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="generate_sales_bill_report_dataset1.xsc">
+      <DependentUpon>generate_sales_bill_report_dataset1.xsd</DependentUpon>
+    </None>
+    <None Include="generate_sales_bill_report_dataset1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>generate_sales_bill_report_dataset1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="generate_sales_bill_report_dataset1.xss">
+      <DependentUpon>generate_sales_bill_report_dataset1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\generate_purchase_report_dataset1.xsc">
+      <DependentUpon>generate_purchase_report_dataset1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\generate_purchase_report_dataset1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>generate_purchase_report_dataset1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\generate_purchase_report_dataset1.xss">
+      <DependentUpon>generate_purchase_report_dataset1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,6 +260,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

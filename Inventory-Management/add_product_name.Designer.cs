@@ -220,7 +220,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "add_product_name";
-            this.Text = "add_product_name";
+            this.Text = "Add Product Name";
             this.Load += new System.EventHandler(this.add_product_name_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

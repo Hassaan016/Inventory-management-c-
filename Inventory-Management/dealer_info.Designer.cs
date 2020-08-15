@@ -223,7 +223,7 @@
             this.ClientSize = new System.Drawing.Size(1413, 523);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
-            this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ForeColor = System.Drawing.SystemColors.Desktop;
             this.Name = "dealer_info";
             this.Text = "Dealer Info";
             this.Load += new System.EventHandler(this.dealer_info_Load);

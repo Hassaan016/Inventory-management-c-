@@ -31,7 +31,6 @@ namespace Inventory_Management
         private void button1_Click(object sender, EventArgs e)
         {
             Console.WriteLine("DEBUG_DEALER: Insert button clicked!");
-
             Console.WriteLine("DEBUG_DEALER: New Dealer Parameters = {0} {1} {2} {3} {4}",
                               textBox1.Text,
                               textBox2.Text,
@@ -40,11 +39,24 @@ namespace Inventory_Management
                               textBox5.Text
                              );
 
-            if ((textBox1.Text != "") &&
-                (textBox2.Text != "") &&
-                (textBox3.Text != "") &&
-                (textBox4.Text != "")&&
-                (textBox5.Text != ""))
+            bool bDealerInfoValidFields = ((textBox1.Text != "") &&
+                                           (textBox2.Text != "") &&
+                                           (textBox3.Text != "") &&
+                                           (textBox4.Text != "") &&
+                                           (textBox5.Text != ""));
+//             int count = 0;
+//             SqlCommand cmd1 = con.CreateCommand();
+//             cmd1.CommandType = CommandType.Text;
+//             cmd1.CommandText = "select * from dealer_info where dealer_name='" + textBox1.Text + "' where dealer_company_name='" + textBox2.Text + "'";
+//             cmd1.ExecuteNonQuery();
+//             DataTable dt1 = new DataTable();
+//             SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
+//             da1.Fill(dt1);
+//             count = Convert.ToInt32(dt1.Rows.Count.ToString());
+//
+//             if ((count == 0))
+//             {
+            if ((bDealerInfoValidFields == true))
             {
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
@@ -61,6 +73,12 @@ namespace Inventory_Management
                 MessageBoxButtons objMessageBoxButton = MessageBoxButtons.OK;
                 MessageBox.Show("This dealer already registered please choose another", "Warning", objMessageBoxButton, MessageBoxIcon.Warning);
             }
+//             }
+//             else
+//             {
+//                 MessageBoxButtons objMessageBoxButton = MessageBoxButtons.OK;
+//                 MessageBox.Show("This unit is already added", "Warning", objMessageBoxButton, MessageBoxIcon.Warning);
+//             }
         }
 
 
@@ -95,9 +113,15 @@ namespace Inventory_Management
             int id;
 
             Console.WriteLine("DEBUG_DEALER: Delete Dealer Button clicked!");
+            Console.WriteLine("DEBUG_DEALER: New Dealer Parameters = {0} {1} {2} {3} {4}",
+                              textBox1.Text,
+                              textBox2.Text,
+                              textBox3.Text,
+                              textBox4.Text,
+                              textBox5.Text
+                             );
 
-
-            if ((dataGridView1.Rows.Count >= 2) && (dataGridView1.SelectedCells[0].Value.ToString() != ""))
+            if ((dataGridView1.Rows.Count >= 2) && (dataGridView1.SelectedCells[0].Value != null))
             {
                 id = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
 
@@ -122,8 +146,23 @@ namespace Inventory_Management
         private void btnUpdateDealerClickCb(object sender, EventArgs e)
         {
             Console.WriteLine("DEBUG_DEALER: Update Button clicked! {0}", dataGridView1.Rows.Count);
+            Console.WriteLine("DEBUG_DEALER: New Dealer Parameters = {0} {1} {2} {3} {4}",
+                              textBox1.Text,
+                              textBox2.Text,
+                              textBox3.Text,
+                              textBox4.Text,
+                              textBox5.Text
+                             );
 
-            if ((dataGridView1.Rows.Count >= 2) && (dataGridView1.SelectedCells[0].Value.ToString() != ""))
+            bool bDealerInfoValidFields = ((textBox1.Text != "") &&
+                                           (textBox2.Text != "") &&
+                                           (textBox3.Text != "") &&
+                                           (textBox4.Text != "") &&
+                                           (textBox5.Text != ""));
+
+            bool bDealerInfoDatagridValidSelection = (dataGridView1.Rows.Count >= 2) && (dataGridView1.SelectedCells[0].Value != null);
+
+            if ((bDealerInfoValidFields == true) &&(bDealerInfoDatagridValidSelection == true))
             {
                 int i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
 
@@ -138,8 +177,17 @@ namespace Inventory_Management
             }
             else
             {
-                MessageBoxButtons objMessageBoxButton = MessageBoxButtons.OK;
-                MessageBox.Show("ERROR: Please select a dealer", "Error", objMessageBoxButton, MessageBoxIcon.Error);
+                if ((bDealerInfoValidFields == true))
+                {
+                    MessageBoxButtons objMessageBoxButton = MessageBoxButtons.OK;
+                    MessageBox.Show("ERROR: Please Enter Valid Values", "Error", objMessageBoxButton, MessageBoxIcon.Error);
+                }
+                else if ((bDealerInfoDatagridValidSelection == true))
+                {
+                    MessageBoxButtons objMessageBoxButton = MessageBoxButtons.OK;
+                    MessageBox.Show("ERROR: Please select a dealer", "Error", objMessageBoxButton, MessageBoxIcon.Error);
+                }
+
             }
         }
 
