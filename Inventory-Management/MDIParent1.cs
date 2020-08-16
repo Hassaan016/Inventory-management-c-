@@ -137,8 +137,11 @@ namespace Inventory_Management
 
         private void purchaseReportToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            genereate_purchase_report objGeneratePurchaseReport = new genereate_purchase_report();
-            objGeneratePurchaseReport.Show();
+            //             genereate_purchase_report objGeneratePurchaseReport = new genereate_purchase_report();
+            //             objGeneratePurchaseReport.Show();
+
+            purchase_report objPurchaseReport = new purchase_report();
+            objPurchaseReport.Show();
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -55,7 +56,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +86,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1626, 275);
             this.panel1.TabIndex = 0;
+            //
+            // button4
+            //
+            this.button4.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.Control;
+            this.button4.Location = new System.Drawing.Point(847, 210);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(133, 46);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Clear";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.btnClearSalesInfoFieldsClickCb);
             //
             // button3
             //
@@ -334,19 +347,6 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             //
-            // button4
-            //
-            this.button4.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.Control;
-            this.button4.Location = new System.Drawing.Point(847, 210);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 46);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Clear";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.btnClearSalesInfoFieldsClickCb);
-            //
             // sales
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -360,7 +360,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Name = "sales";
-            this.Text = "sales";
+            this.Text = "Sales";
             this.Load += new System.EventHandler(this.sales_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

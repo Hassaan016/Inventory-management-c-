@@ -54,6 +54,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +69,7 @@
             // dataGridView1
             //
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(722, 13);
+            this.dataGridView1.Location = new System.Drawing.Point(722, 178);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -94,7 +102,7 @@
             this.panel1.Controls.Add(this.Unit);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 13);
+            this.panel1.Location = new System.Drawing.Point(12, 178);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(682, 598);
             this.panel1.TabIndex = 6;
@@ -141,6 +149,7 @@
             //
             // dateTimePicker2
             //
+            this.dateTimePicker2.CustomFormat = "dd-mm-yyyy";
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Location = new System.Drawing.Point(212, 253);
             this.dateTimePicker2.Name = "dateTimePicker2";
@@ -149,11 +158,13 @@
             //
             // dateTimePicker1
             //
+            this.dateTimePicker1.CustomFormat = "dd-mm-yyyy";
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(212, 153);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(349, 26);
             this.dateTimePicker1.TabIndex = 22;
+            this.dateTimePicker1.Value = new System.DateTime(2020, 8, 16, 0, 0, 0, 0);
             //
             // textBox4
             //
@@ -327,12 +338,105 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             //
+            // textBox5
+            //
+            this.textBox5.Location = new System.Drawing.Point(155, 21);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(323, 22);
+            this.textBox5.TabIndex = 15;
+            //
+            // label10
+            //
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(19, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(115, 20);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Search Field";
+            //
+            // button4
+            //
+            this.button4.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.Control;
+            this.button4.Location = new System.Drawing.Point(170, 92);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(216, 45);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Show All Purchases";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            //
+            // button5
+            //
+            this.button5.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.Control;
+            this.button5.Location = new System.Drawing.Point(19, 92);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(132, 45);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Search";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            //
+            // dateTimePicker3
+            //
+            this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker3.Location = new System.Drawing.Point(1107, 24);
+            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(341, 26);
+            this.dateTimePicker3.TabIndex = 10;
+            //
+            // dateTimePicker4
+            //
+            this.dateTimePicker4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker4.Location = new System.Drawing.Point(623, 22);
+            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(340, 26);
+            this.dateTimePicker4.TabIndex = 11;
+            //
+            // label11
+            //
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(1003, 25);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(87, 20);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "End Date";
+            //
+            // label12
+            //
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(511, 24);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 20);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "Start Date";
+            //
             // purchase_master
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1816, 623);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.dateTimePicker3);
+            this.Controls.Add(this.dateTimePicker4);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "purchase_master";
@@ -342,6 +446,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -372,5 +477,13 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }

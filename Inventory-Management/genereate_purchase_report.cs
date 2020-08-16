@@ -44,7 +44,7 @@ namespace Inventory_Management
 
             Console.WriteLine("DEBUG_GENERATE_PURCHASE_REPORT: genereate_purchase_report_Load() Called!");
 
-            if (j != "")
+            if (j != "" && j != null)
             {
                 generate_purchase_report_dataset1 ds = new generate_purchase_report_dataset1();
 

@@ -53,9 +53,13 @@ namespace Inventory_Management
 
 
             dt.Clear();
+            dt.Columns.Add("firstname");
+            dt.Columns.Add("lastname");
+            dt.Columns.Add("billtype");
             dt.Columns.Add("product");
             dt.Columns.Add("price");
             dt.Columns.Add("quantity");
+            dt.Columns.Add("purchase_date");
             dt.Columns.Add("total");
         }
 
@@ -123,9 +127,13 @@ namespace Inventory_Management
                 else
                 {
                     DataRow dr = dt.NewRow();
+                    dr["firstname"] = textBox1.Text;
+                    dr["lastname"] = textBox2.Text;
+                    dr["billtype"] = comboBox1.Text;
                     dr["product"] = comboBox2.Text;
                     dr["price"] = textBox4.Text;
                     dr["quantity"] = textBox5.Text;
+                    dr["purchase_date"] = dateTimePicker1.Value.ToString("dd-MM-yyyy");
                     dr["total"] = textBox6.Text;
 
                     dt.Rows.Add(dr);

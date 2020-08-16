@@ -14,6 +14,7 @@ namespace Inventory_Management
     {
         bool bHandlingDataGridEvent = false;
         string[] astrPurchaseType = { "CASH", "DEBUT" };
+        string query = "";
 
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=G:\Github_Repos\Hassaan\Inventory-management-c#\Inventory-Management\Inventory.mdf;Integrated Security=True");
 
@@ -109,6 +110,20 @@ namespace Inventory_Management
         }
 
 
+        public void vDisplayPurchaseMasterInfo()
+        {
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from purchase_master";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+            dataGridView1.DataSource = dt;
+        }
+
+
         private void textBox2_Leave(object sender, EventArgs e)
         {
             textBox3.Text = Convert.ToString(ulPurchaseMasterCalculateProductTotal());
@@ -136,11 +151,15 @@ namespace Inventory_Management
 
             int i = Convert.ToInt32(dt1.Rows.Count.ToString());
 
-            if(i == 0)
+            Console.WriteLine(dateTimePicker1.Value.ToString("dd-MM-yyyy"));
+            Console.WriteLine(dateTimePicker1.Value.Date);
+
+
+            if (i == 0)
             {
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into purchase_master values('" + comboBox1.Text + "','" + textBox1.Text + "','" + Unit.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + dateTimePicker1.Value.ToString("dd-MM-yyyy") + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + dateTimePicker2.Value.ToString("dd-MM-yyyy") + "','" + textBox4.Text + "')";
+                cmd.CommandText = "insert into purchase_master values('" + comboBox1.Text + "','" + textBox1.Text + "','" + Unit.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + dateTimePicker1.Value.Date.ToString("dd-MM-yyyy") + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + dateTimePicker2.Value.Date.ToString("dd-MM-yyyy") + "','" + textBox4.Text + "')";
                 cmd.ExecuteNonQuery();
 
                 SqlCommand cmd3 = con.CreateCommand();
@@ -152,7 +171,7 @@ namespace Inventory_Management
             {
                 SqlCommand cmd2 = con.CreateCommand();
                 cmd2.CommandType = CommandType.Text;
-                cmd2.CommandText = "insert into purchase_master values('" + comboBox1.Text + "','" + textBox1.Text + "','" + Unit.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + dateTimePicker1.Value.ToString("dd-MM-yyyy") + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + dateTimePicker2.Value.ToString("dd-MM-yyyy") + "','" + textBox4.Text + "')";
+                cmd2.CommandText = "insert into purchase_master values('" + comboBox1.Text + "','" + textBox1.Text + "','" + Unit.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + dateTimePicker1.Value.Date.ToString("dd-MM-yyyy") + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + dateTimePicker2.Value.Date.ToString("dd-MM-yyyy") + "','" + textBox4.Text + "')";
                 cmd2.ExecuteNonQuery();
 
 
@@ -163,20 +182,6 @@ namespace Inventory_Management
             }
 
             vDisplayPurchaseMasterInfo();
-        }
-
-
-        public void vDisplayPurchaseMasterInfo()
-        {
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from purchase_master";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-
-            dataGridView1.DataSource = dt;
         }
 
 
@@ -219,7 +224,6 @@ namespace Inventory_Management
             bool bComboBoxValidTextField = false;
             bool bComboBoxValidSelectionMade = false;
 
-            Console.WriteLine("Why!");
 
             if ((comboBox1.Text != "")&&((comboBox2.Text != ""))&&((comboBox3.Text != "")))
             {
@@ -239,13 +243,15 @@ namespace Inventory_Management
                 bComboBoxValidSelectionMade = true;
             }
 
+            Console.WriteLine(dateTimePicker1.Value.ToString());
+
             if ((bComboBoxValidTextField == true) &&(bComboBoxValidSelectionMade == true) &&(dataGridView1.Rows.Count >= 2) && (dataGridView1.SelectedCells[0].Value.ToString() != ""))
             {
                 int i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
 
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update purchase_master set product_name= '" + strProductNameComboBox + "',product_quantity='" + textBox1.Text + "' ,product_unit='" + Unit.Text + "' ,product_price='" + textBox2.Text + "' ,product_total='" + textBox3.Text + "',product_date='"+dateTimePicker1.Value.ToString()+"',product_party_name='"+ strDealerNameComboBox + "',purchase_type='"+ strPurchaseTypeComboBox + "',expiry_date='"+dateTimePicker2.Value.ToString()+"',profit='"+textBox4+"' where id=" + i + "";
+                cmd.CommandText = "update purchase_master set product_name= '" + strProductNameComboBox + "',product_quantity='" + textBox1.Text + "' ,product_unit='" + Unit.Text + "' ,product_price='" + textBox2.Text + "' ,product_total='" + textBox3.Text + "',product_date='"+dateTimePicker1.Value.Date.ToString("dd-MM-yyyy")+"',product_party_name='"+ strDealerNameComboBox + "',purchase_type='"+ strPurchaseTypeComboBox + "',expiry_date='"+dateTimePicker2.Value.Date.ToString("dd-MM-yyyy") +"',profit='"+textBox4.Text+"' where id=" + i + "";
                 cmd.ExecuteNonQuery();
 
                 vDisplayPurchaseMasterInfo();
@@ -257,6 +263,74 @@ namespace Inventory_Management
                 MessageBoxButtons objMessageBoxButton = MessageBoxButtons.OK;
                 MessageBox.Show("ERROR: Please select a record", "Error", objMessageBoxButton, MessageBoxIcon.Error);
             }
+        }
+
+
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("DEBUG_PURCHASE_MASTER: Search Button Clicked!");
+
+            string startdate;
+            string enddate;
+
+            startdate = dateTimePicker4.Value.ToString("dd-MM-yyyy");
+            enddate = dateTimePicker3.Value.ToString("dd-MM-yyyy");
+
+            if ((textBox5.Text != ""))
+            {
+                query = "select * from purchase_master where product_name='" + textBox5.Text + "' OR product_quantity='" + textBox5.Text + "' OR product_unit='" + textBox5.Text + "' OR product_price='" + textBox5.Text + "' AND product_date>='" + startdate.ToString() + "' AND product_date<='" + enddate.ToString() + "'";
+            }
+            else
+            {
+                query = "select * from purchase_master where product_date>='" + startdate.ToString() + "' AND product_date<='" + enddate.ToString() + "'";
+            }
+
+
+            int i = 0;
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+            dataGridView1.DataSource = dt;
+
+            //             foreach (DataRow dr in dt.Rows)
+            //             {
+            //                 i = i + Convert.ToInt32(dr["product_total"].ToString());
+            //             }
+
+            //label3.Text = i.ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("DEBUG_PURCHASE_MASTER: All Purchase Button Clicked!");
+
+            query = "select * from purchase_master";
+
+            int i = 0;
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+            dataGridView1.DataSource = dt;
+
+            //             foreach (DataRow dr in dt.Rows)
+            //             {
+            //                 i = i + Convert.ToInt32(dr["product_total"].ToString());
+            //             }
+
+            //label3.Text = i.ToString();
         }
 
 
@@ -395,5 +469,6 @@ namespace Inventory_Management
 
             }
         }
+
     }
 }

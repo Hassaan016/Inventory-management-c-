@@ -31,11 +31,20 @@ namespace Inventory_Management
             startdate = dateTimePicker1.Value.ToString("dd-MM-yyyy");
             enddate = dateTimePicker1.Value.ToString("dd-MM-yyyy");
 
+            if((textBox1.Text != ""))
+            {
+                query = "select * from purchase_master where product_name='" + textBox1.Text + "' OR product_quantity='" + textBox1.Text + "' OR product_unit='" + textBox1.Text + "' OR product_price='" + textBox1.Text + "'";
+            }
+            else
+            {
+                query = "select * from purchase_master where product_date>='" + startdate.ToString() + "' AND product_date<='" + enddate.ToString() + "'";
+            }
+
 
             int i = 0;
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from purchase_master where product_date>='"+startdate.ToString()+ "' AND product_date<='" + enddate.ToString() + "'";
+            cmd.CommandText = query;
             cmd.ExecuteNonQuery();
 
             DataTable dt = new DataTable();
@@ -51,7 +60,6 @@ namespace Inventory_Management
 
             //label3.Text = i.ToString();
 
-            query = "select * from purchase_master where product_date>='" + startdate.ToString() + "' AND product_date<='" + enddate.ToString() + "'";
         }
 
 
@@ -59,10 +67,12 @@ namespace Inventory_Management
         {
             Console.WriteLine("DEBUG_PURCHASE_REPORT: All Purchase Button Clicked!");
 
+            query = "select * from purchase_master";
+
             int i = 0;
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from purchase_master";
+            cmd.CommandText = query;
             cmd.ExecuteNonQuery();
 
             DataTable dt = new DataTable();
@@ -77,7 +87,7 @@ namespace Inventory_Management
             }
 
             //label3.Text = i.ToString();
-            query= "select * from purchase_master";
+
         }
 
 
@@ -89,6 +99,7 @@ namespace Inventory_Management
             objGeneratePurchaseReport.get_value(query.ToString());
             objGeneratePurchaseReport.Show();
         }
+
 
         private void purchase_report_Load(object sender, EventArgs e)
         {
