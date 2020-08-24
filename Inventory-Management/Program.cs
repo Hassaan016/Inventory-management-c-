@@ -19,10 +19,10 @@ namespace Inventory_Management
             //Application.Run(new unit());
             //Application.Run(new add_product_name());
             // Application.Run(new dealer_info());
-            Application.Run(new purchase_master());
+            //Application.Run(new purchase_master());
             //  Application.Run(new sales());
             //Application.Run(new purchase_report());
-            //Application.Run(new Login());
+            Application.Run(new Login());
         }
     }
 }

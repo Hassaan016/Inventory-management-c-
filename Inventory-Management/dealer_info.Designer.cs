@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dealer_info));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -220,10 +221,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1413, 523);
+            this.ClientSize = new System.Drawing.Size(1429, 523);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "dealer_info";
             this.Text = "Dealer Info";
             this.Load += new System.EventHandler(this.dealer_info_Load);

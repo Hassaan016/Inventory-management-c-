@@ -50,7 +50,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(113, 127);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(594, 311);
+            this.panel1.Size = new System.Drawing.Size(541, 219);
             this.panel1.TabIndex = 1;
             //
             // button1
@@ -58,7 +58,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.Highlight;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(227, 160);
+            this.button1.Location = new System.Drawing.Point(225, 131);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 43);
             this.button1.TabIndex = 3;
@@ -108,9 +108,10 @@
             // pictureBox1
             //
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(21, 127);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 133);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 66);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             //
@@ -130,11 +131,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(752, 450);
+            this.ClientSize = new System.Drawing.Size(759, 432);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory Management System";
             this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);

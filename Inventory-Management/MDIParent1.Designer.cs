@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +47,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +66,7 @@
             });
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(843, 28);
+            this.menuStrip.Size = new System.Drawing.Size(982, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             //
@@ -140,7 +142,7 @@
             // dealerInfoToolStripMenuItem
             //
             this.dealerInfoToolStripMenuItem.Name = "dealerInfoToolStripMenuItem";
-            this.dealerInfoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dealerInfoToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
             this.dealerInfoToolStripMenuItem.Text = "Add New Dealer";
             this.dealerInfoToolStripMenuItem.Click += new System.EventHandler(this.dealerInfoToolStripMenuItem_Click);
             //
@@ -157,7 +159,7 @@
             // makeSaleToolStripMenuItem
             //
             this.makeSaleToolStripMenuItem.Name = "makeSaleToolStripMenuItem";
-            this.makeSaleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.makeSaleToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.makeSaleToolStripMenuItem.Text = "Make Sale";
             this.makeSaleToolStripMenuItem.Click += new System.EventHandler(this.makeSaleToolStripMenuItem_Click);
             //
@@ -174,7 +176,7 @@
             // purchaseReportToolStripMenuItem
             //
             this.purchaseReportToolStripMenuItem.Name = "purchaseReportToolStripMenuItem";
-            this.purchaseReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.purchaseReportToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
             this.purchaseReportToolStripMenuItem.Text = "Purchase Report";
             this.purchaseReportToolStripMenuItem.Click += new System.EventHandler(this.purchaseReportToolStripMenuItem_Click_1);
             //
@@ -185,10 +187,10 @@
             {
                 this.toolStripStatusLabel
             });
-            this.statusStrip.Location = new System.Drawing.Point(0, 532);
+            this.statusStrip.Location = new System.Drawing.Point(0, 527);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip.Size = new System.Drawing.Size(843, 26);
+            this.statusStrip.Size = new System.Drawing.Size(982, 26);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             //
@@ -198,19 +200,34 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
             this.toolStripStatusLabel.Text = "Status";
             //
+            // label1
+            //
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(162, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(624, 48);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Inventory Management System";
+            //
             // MDIParent1
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 558);
+            this.ClientSize = new System.Drawing.Size(982, 553);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MDIParent1";
-            this.Text = "MDIParent1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Inventory Management System";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
@@ -239,6 +256,7 @@
         private System.Windows.Forms.ToolStripMenuItem makeSaleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem purchaseReportToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }
 

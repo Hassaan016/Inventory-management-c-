@@ -7,10 +7,11 @@
     <ProjectGuid>{F7D7D7D4-ED6D-420F-836D-AC88EB7A2651}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Inventory_Management</RootNamespace>
-    <AssemblyName>Inventory Management</AssemblyName>
+    <AssemblyName>Inventory Management v1.0</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -46,6 +46,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Inventory Managment Icon--1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -246,6 +250,7 @@
     <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Inventory Managment Icon--1.ico" />
     <Content Include="Inventory.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
